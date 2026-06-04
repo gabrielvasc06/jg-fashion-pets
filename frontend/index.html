@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J&G Fashion Pets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">J&G Fashion Pets</a>
+        <nav class="main-nav" aria-label="Navegacao principal">
+            <a class="active" href="index.html">Inicio</a>
+            <a href="modelador.html">Cadastrar pet</a>
+            <a href="retalhos.html">Retalhos</a>
+            <a href="#entregas">Entregas</a>
+            <a href="pagamento.html">Pagamento</a>
+            <a href="admin.html">Admin</a>
+            <button class="icon-button" id="theme-toggle" type="button" title="Alternar tema">Tema</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero hero-centered">
+            <div class="hero-content">
+                <p class="eyebrow hero-eyebrow">Atelie sustentavel para pets</p>
+                <h1>Roupas sob medida para cachorro e gato com retalhos do atelie.</h1>
+                <p>Escolha o tecido, cadastre as medidas do pet, veja a simulacao da roupa e calcule a entrega em poucos cliques.</p>
+                <div class="hero-actions">
+                    <a class="button" href="modelador.html">Criar modelo do pet</a>
+                    <a class="button ghost" href="retalhos.html">Explorar retalhos</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-links section compact-section" aria-label="Atalhos da aplicacao">
+            <a class="quick-card" href="modelador.html">
+                <strong>Cadastro do pet</strong>
+                <span>Foto, medidas e retalho escolhido em um cadastro simples.</span>
+            </a>
+            <a class="quick-card" href="retalhos.html">
+                <strong>Estoque de retalhos</strong>
+                <span>Veja cores, texturas e metros disponiveis.</span>
+            </a>
+            <a class="quick-card" href="#entregas">
+                <strong>Entrega e rota</strong>
+                <span>Compare moto, carro e aviao com Google Maps.</span>
+            </a>
+        </section>
+
+        <section class="section" id="retalhos">
+            <div class="section-heading centered">
+                <p class="eyebrow">Estoque vivo</p>
+                <h2>Retalhos disponiveis para novas roupas</h2>
+                <p>O cliente consegue visualizar o material antes de criar a roupa do pet.</p>
+            </div>
+            <div class="carousel" id="retalhos-carousel" aria-label="Carrossel de retalhos"></div>
+        </section>
+
+        <section class="section band-section">
+            <div class="section-heading centered">
+                <p class="eyebrow">Inspiracao visual</p>
+                <h2>Exemplos de roupas para pets</h2>
+                <p>Modelos de referencia para ajudar o cliente a escolher tamanho, tecido e estilo.</p>
+            </div>
+            <div class="cards-grid feature-grid" id="roupas-grid"></div>
+        </section>
+
+        <section class="section split-section delivery-section" id="entregas">
+            <div class="section-heading centered full-span">
+                <p class="eyebrow">Rotas e custos</p>
+                <h2>Simulador de entrega</h2>
+                <p>Informe o destino e veja o custo estimado para enviar a roupa finalizada.</p>
+            </div>
+
+            <form class="panel delivery-form" onsubmit="event.preventDefault(); calcularFreteCompleto();">
+                <label for="origem-entrega">Origem</label>
+                <input id="origem-entrega" type="text" value="Recife, PE">
+
+                <div class="form-row">
+                    <div>
+                        <label for="cep-entrega">CEP do cliente</label>
+                        <input id="cep-entrega" type="text" inputmode="numeric" placeholder="Ex: 51020000">
+                    </div>
+                    <div>
+                        <label for="numero-entrega">Numero</label>
+                        <input id="numero-entrega" type="text" placeholder="Ex: 120">
+                    </div>
+                </div>
+
+                <button class="button ghost compact-button lookup-button" type="button" onclick="buscarEnderecoPorCep()">Buscar endereco pelo CEP</button>
+
+                <label for="logradouro-entrega">Rua / avenida</label>
+                <input id="logradouro-entrega" type="text" placeholder="Rua localizada pelo CEP">
+
+                <div class="form-row">
+                    <div>
+                        <label for="bairro-entrega">Bairro</label>
+                        <input id="bairro-entrega" type="text" placeholder="Bairro">
+                    </div>
+                    <div>
+                        <label for="cidade-entrega">Cidade / UF</label>
+                        <input id="cidade-entrega" type="text" placeholder="Cidade, UF">
+                    </div>
+                </div>
+
+                <label for="complemento-entrega">Complemento</label>
+                <input id="complemento-entrega" type="text" placeholder="Apto, bloco, referencia...">
+
+                <label for="destino-entrega">Destino completo</label>
+                <input id="destino-entrega" type="text" placeholder="Ex: Rua, numero, bairro, cidade">
+
+                <label for="distancia-km">Distancia estimada (km)</label>
+                <input id="distancia-km" type="number" min="1" value="12">
+
+                <label for="modal-transporte">Locomocao</label>
+                <select id="modal-transporte">
+                    <option value="moto">Moto - R$ 8,00 + R$ 1,50/km</option>
+                    <option value="carro">Carro - R$ 20,00 + R$ 2,00/km</option>
+                    <option value="aviao">Aviao - R$ 60,00 + R$ 5,00/km</option>
+                </select>
+                <div class="button-row delivery-buttons">
+                    <button class="button" type="submit">Calcular frete</button>
+                    <button class="button secondary" type="button" onclick="abrirGoogleMapsCompleto()">Abrir Google Maps</button>
+                </div>
+            </form>
+
+            <aside class="panel result-panel" id="resultado-logistica-box">
+                <p class="eyebrow">Resumo</p>
+                <h3>Entrega personalizada</h3>
+                <p>Informe destino, distancia e modal para comparar prazo e custo.</p>
+                <div class="delivery-options">
+                    <span>Moto: urbano rapido</span>
+                    <span>Carro: regional</span>
+                    <span>Aviao: longa distancia</span>
+                </div>
+            </aside>
+        </section>
+
+        <section class="section payment-preview">
+            <div class="section-heading centered">
+                <p class="eyebrow">Finalizacao</p>
+                <h2>Pagamento do pedido</h2>
+                <p>Depois de definir modelo, retalho e entrega, o cliente pode escolher QR Code, credito, debito ou boleto.</p>
+            </div>
+            <div class="payment-methods">
+                <a class="payment-card" href="pagamento.html">QR Code Pix</a>
+                <a class="payment-card" href="pagamento.html">Credito</a>
+                <a class="payment-card" href="pagamento.html">Debito</a>
+                <a class="payment-card" href="pagamento.html">Boleto</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading centered">
+                <p class="eyebrow">Mural de clientes</p>
+                <h2>Pets cadastrados e retalhos escolhidos</h2>
+                <p>Outros clientes podem se inspirar nos retalhos que ja foram utilizados.</p>
+            </div>
+            <div class="cards-grid feature-grid" id="mural-container"></div>
+        </section>
+    </main>
+
+    <script src="js/app.js?v=20260603-wikimedia-pet-clothes"></script>
+    <script src="js/maps.js?v=20260603-wikimedia-pet-clothes"></script>
+</body>
+</html>
+
+
+
+

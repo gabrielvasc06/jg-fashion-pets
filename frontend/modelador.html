@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pet | J&G Fashion Pets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">J&G Fashion Pets</a>
+        <nav class="main-nav" aria-label="Navegacao principal">
+            <a href="index.html">Inicio</a>
+            <a class="active" href="modelador.html">Cadastrar pet</a>
+            <a href="retalhos.html">Retalhos</a>
+            <a href="pagamento.html">Pagamento</a>
+            <a href="admin.html">Admin</a>
+            <button class="icon-button" id="theme-toggle" type="button" title="Alternar tema">Tema</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-intro section compact-section">
+            <p class="eyebrow">Modelador do cliente</p>
+            <h1>Cadastre o pet e visualize a roupa antes da producao.</h1>
+            <p>Preencha as medidas, escolha um retalho e acompanhe a simulacao em tempo real.</p>
+            <div class="back-actions">
+                <button class="button ghost compact-button" type="button" onclick="history.back()">Voltar</button>
+                <a class="button compact-button" href="retalhos.html">Ver retalhos</a>
+            </div>
+        </section>
+
+        <section class="section workspace">
+            <section class="panel">
+                <p class="eyebrow">Cadastro completo</p>
+                <h1 id="form-title">Cadastrar pet</h1>
+                <form id="pet-crud-form">
+                    <input type="hidden" id="pet-id">
+
+                    <label for="pet-nome">Nome do animal</label>
+                    <input type="text" id="pet-nome" required placeholder="Ex: Mel">
+
+                    <label for="pet-tipo">Modelo do animal</label>
+                    <select id="pet-tipo">
+                        <option value="Cachorro">Cachorro</option>
+                        <option value="Gato">Gato</option>
+                    </select>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="pet-peito">Peito (cm)</label>
+                            <input type="number" id="pet-peito" min="10" value="45" required>
+                        </div>
+                        <div>
+                            <label for="pet-pescoco">Pescoco (cm)</label>
+                            <input type="number" id="pet-pescoco" min="8" value="30" required>
+                        </div>
+                    </div>
+
+                    <label for="pet-retalho">Retalho escolhido</label>
+                    <select id="pet-retalho"></select>
+
+                    <label for="pet-upload-foto">Foto do pet</label>
+                    <input type="file" id="pet-upload-foto" accept="image/*">
+
+                    <div class="form-actions">
+                        <button class="button compact-button" type="submit">Salvar pet</button>
+                        <button class="button ghost compact-button" type="button" id="btn-cancelar" hidden>Cancelar edicao</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel preview-panel">
+                <p class="eyebrow">Modelador 2D</p>
+                <h2>Simulacao da roupa</h2>
+                <div class="pet-stage">
+                    <div class="pet-avatar dog" id="visualizador-pet">
+                        <span class="pet-head"></span>
+                        <span class="pet-ear left"></span>
+                        <span class="pet-ear right"></span>
+                        <span class="pet-body"></span>
+                        <span class="clothes-layer" id="visualizador-roupa"></span>
+                    </div>
+                </div>
+                <div class="model-summary" id="model-summary"></div>
+            </section>
+
+            <section class="panel list-panel">
+                <p class="eyebrow">Registros</p>
+                <h2>Pets salvos</h2>
+                <div id="lista-pets-crud" class="crud-list"></div>
+            </section>
+        </section>
+
+        <section class="section split-section checkout-section">
+            <section class="panel delivery-form checkout-delivery">
+                <p class="eyebrow">Entrega</p>
+                <h2>Rota do pedido</h2>
+                <label for="origem-entrega">Origem</label>
+                <input id="origem-entrega" type="text" value="Recife, PE">
+
+                <div class="form-row">
+                    <div>
+                        <label for="cep-entrega">CEP</label>
+                        <input id="cep-entrega" type="text" inputmode="numeric" placeholder="Ex: 51020000">
+                    </div>
+                    <div>
+                        <label for="numero-entrega">Numero</label>
+                        <input id="numero-entrega" type="text" placeholder="Ex: 120">
+                    </div>
+                </div>
+
+                <button class="button ghost compact-button lookup-button" type="button" onclick="buscarEnderecoPorCep()">Buscar endereco pelo CEP</button>
+
+                <label for="logradouro-entrega">Rua / avenida</label>
+                <input id="logradouro-entrega" type="text" placeholder="Rua localizada pelo CEP">
+
+                <div class="form-row">
+                    <div>
+                        <label for="bairro-entrega">Bairro</label>
+                        <input id="bairro-entrega" type="text" placeholder="Bairro">
+                    </div>
+                    <div>
+                        <label for="cidade-entrega">Cidade / UF</label>
+                        <input id="cidade-entrega" type="text" placeholder="Cidade, UF">
+                    </div>
+                </div>
+
+                <label for="complemento-entrega">Complemento</label>
+                <input id="complemento-entrega" type="text" placeholder="Apto, bloco, referencia...">
+
+                <label for="destino-entrega">Destino completo</label>
+                <input id="destino-entrega" type="text" placeholder="Endereco completo">
+
+                <label for="distancia-km">Distancia estimada (km)</label>
+                <input id="distancia-km" type="number" min="1" value="12">
+
+                <label for="modal-transporte">Locomocao</label>
+                <select id="modal-transporte">
+                    <option value="moto">Moto - R$ 8,00 + R$ 1,50/km</option>
+                    <option value="carro">Carro - R$ 20,00 + R$ 2,00/km</option>
+                    <option value="aviao">Aviao - R$ 60,00 + R$ 5,00/km</option>
+                </select>
+
+                <div class="button-row delivery-buttons">
+                    <button class="button compact-button" type="button" onclick="calcularFreteCompleto()">Calcular frete</button>
+                    <button class="button secondary compact-button" type="button" onclick="abrirGoogleMapsCompleto()">Abrir Maps</button>
+                </div>
+            </section>
+
+            <aside class="panel result-panel checkout-delivery-result" id="resultado-logistica-box">
+                <p class="eyebrow">Resumo da rota</p>
+                <h3>Entrega do pedido</h3>
+                <p>Busque o CEP, informe numero e calcule o frete para atualizar o total do pedido.</p>
+                <div class="delivery-options">
+                    <span>Moto: urbano rapido</span>
+                    <span>Carro: regional</span>
+                    <span>Aviao: longa distancia</span>
+                </div>
+            </aside>
+
+            <section class="panel">
+                <p class="eyebrow">Pedido estimado</p>
+                <h2>Resumo para finalizar</h2>
+                <p class="small-text">Os valores mudam conforme medida e retalho escolhido.</p>
+                <div class="table-list" id="checkout-summary"></div>
+            </section>
+
+            <section class="panel">
+                <p class="eyebrow">Pagamento</p>
+                <h2>Finalizacao simulada</h2>
+                <div class="payment-methods vertical">
+                    <button class="payment-card" data-payment-method="pix" type="button">QR Code Pix</button>
+                    <button class="payment-card" data-payment-method="credito" type="button">Cartao de credito</button>
+                    <button class="payment-card" data-payment-method="debito" type="button">Cartao de debito</button>
+                    <button class="payment-card" data-payment-method="boleto" type="button">Boleto com QR</button>
+                </div>
+                <div class="payment-details" id="payment-details" hidden></div>
+                <div class="qr-preview smart-qr" id="payment-qr" aria-label="QR Code demonstrativo" hidden></div>
+                <div class="form-actions">
+                    <button class="button compact-button" type="button">Confirmar pedido</button>
+                    <a class="button ghost compact-button" href="index.html">Voltar ao inicio</a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="js/app.js?v=20260603-wikimedia-pet-clothes"></script>
+    <script src="js/maps.js?v=20260603-wikimedia-pet-clothes"></script>
+</body>
+</html>
+
+
+
+

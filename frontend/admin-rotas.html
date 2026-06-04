@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotas | Admin J&G</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-admin-page="true">
+    <header class="site-header admin-header">
+        <a class="logo" href="admin.html">J&G Admin</a>
+        <nav class="main-nav" aria-label="Navegacao administrativa">
+            <a href="admin.html">Painel</a>
+            <a href="admin-fornecedores.html">Fornecedores</a>
+            <a href="admin-retalhos.html">Retalhos</a>
+            <a class="active" href="admin-rotas.html">Rotas</a>
+            <button class="icon-button" id="theme-toggle" type="button">Tema</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero admin-hero compact-hero">
+            <div class="hero-content">
+                <p class="eyebrow hero-eyebrow">Logistica</p>
+                <h1>Rotas cadastradas, valores a receber e status de entrega.</h1>
+                <p>Acompanhe transporte, custo estimado, valor cobrado do cliente e andamento do pedido.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="cards-grid stats-grid">
+                <article class="panel stat-card"><span>Hoje</span><strong>R$ 148,50</strong><small>A receber em entregas</small></article>
+                <article class="panel stat-card"><span>Rotas abertas</span><strong>6</strong><small>3 moto, 2 carro, 1 aviao</small></article>
+                <article class="panel stat-card"><span>Tempo medio</span><strong>42 min</strong><small>Pedidos urbanos</small></article>
+            </div>
+        </section>
+
+        <section class="section split-section admin-workspace">
+            <form class="panel">
+                <p class="eyebrow">Cadastrar rota</p>
+                <h2>Nova entrega</h2>
+                <label>Cliente</label>
+                <input type="text" placeholder="Nome do cliente">
+                <label>Destino</label>
+                <input type="text" placeholder="Bairro, cidade">
+                <label>Modal</label>
+                <select>
+                    <option>Moto</option>
+                    <option>Carro</option>
+                    <option>Aviao</option>
+                </select>
+                <label>Valor a receber</label>
+                <input type="number" min="0" value="24">
+                <button class="button" type="button">Salvar rota</button>
+            </form>
+
+            <section class="panel">
+                <p class="eyebrow">Entregas</p>
+                <h2>Rotas cadastradas</h2>
+                <div class="table-list">
+                    <article><strong>Mel - Olinda/PE</strong><span>Moto | R$ 26,00 | Em producao</span></article>
+                    <article><strong>Luna - Recife/PE</strong><span>Carro | R$ 44,00 | Separado para envio</span></article>
+                    <article><strong>Thor - Salvador/BA</strong><span>Aviao | R$ 185,00 | Aguardando postagem</span></article>
+                    <article><strong>Nina - Paulista/PE</strong><span>Moto | R$ 22,50 | Entregue</span></article>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="js/app.js?v=20260603-wikimedia-pet-clothes"></script>
+</body>
+</html>
+
+
+
+

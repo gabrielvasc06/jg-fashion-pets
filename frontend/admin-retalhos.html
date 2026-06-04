@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retalhos | Admin J&G</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-admin-page="true">
+    <header class="site-header admin-header">
+        <a class="logo" href="admin.html">J&G Admin</a>
+        <nav class="main-nav" aria-label="Navegacao administrativa">
+            <a href="admin.html">Painel</a>
+            <a href="admin-fornecedores.html">Fornecedores</a>
+            <a class="active" href="admin-retalhos.html">Retalhos</a>
+            <a href="admin-rotas.html">Rotas</a>
+            <button class="icon-button" id="theme-toggle" type="button">Tema</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero admin-hero compact-hero">
+            <div class="hero-content">
+                <p class="eyebrow hero-eyebrow">Estoque interno</p>
+                <h1>Cadastro e acompanhamento de retalhos.</h1>
+                <p>Controle entradas de tecido, estoque em metros, custo e preco sugerido para producao.</p>
+            </div>
+        </section>
+
+        <section class="section split-section admin-workspace">
+            <form class="panel">
+                <p class="eyebrow">Novo retalho</p>
+                <h2>Dados do tecido</h2>
+                <label>Nome</label>
+                <input type="text" placeholder="Ex: Tricoline floral">
+                <label>Cor principal</label>
+                <input type="color" value="#b56576">
+                <label>Estoque em metros</label>
+                <input type="number" min="0" value="10">
+                <label>Custo por metro</label>
+                <input type="number" min="0" value="8">
+                <label>Fornecedor</label>
+                <select>
+                    <option>Atelie Flor de Algodao</option>
+                    <option>Retalhos Recife</option>
+                    <option>Malharia Boa Vista</option>
+                </select>
+                <button class="button" type="button">Salvar retalho</button>
+            </form>
+
+            <section class="panel">
+                <p class="eyebrow">Resumo do estoque</p>
+                <h2>Retalhos cadastrados</h2>
+                <div class="table-list">
+                    <article><strong>Algodao soft rosa</strong><span>12.4m | R$ 18,00/m sugerido</span></article>
+                    <article><strong>Jeans reaproveitado</strong><span>7.8m | R$ 22,00/m sugerido</span></article>
+                    <article><strong>Ribana elastica</strong><span>16.8m | R$ 14,00/m sugerido</span></article>
+                    <article><strong>Tactel azul impermeavel</strong><span>6.7m | R$ 25,00/m sugerido</span></article>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="js/app.js?v=20260603-wikimedia-pet-clothes"></script>
+</body>
+</html>
+
+
+
+

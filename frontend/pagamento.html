@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento | J&G Fashion Pets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">J&G Fashion Pets</a>
+        <nav class="main-nav" aria-label="Navegacao principal">
+            <a href="index.html">Inicio</a>
+            <a href="modelador.html">Cadastrar pet</a>
+            <a href="retalhos.html">Retalhos</a>
+            <a class="active" href="pagamento.html">Pagamento</a>
+            <a href="admin.html">Admin</a>
+            <button class="icon-button" id="theme-toggle" type="button">Tema</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero compact-hero">
+            <div class="hero-content">
+                <p class="eyebrow hero-eyebrow">Finalizacao do pedido</p>
+                <h1>O pagamento aparece quando o pet e a roupa forem cadastrados.</h1>
+                <p>Para evitar resumo falso, esta pagina mostra apenas os metodos aceitos. A finalizacao completa fica no cadastro do pet.</p>
+                <div class="hero-actions">
+                    <button class="button ghost compact-button" type="button" onclick="history.back()">Voltar</button>
+                    <a class="button compact-button" href="modelador.html">Criar pedido</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading centered">
+                <p class="eyebrow">Metodos aceitos</p>
+                <h2>Formas de pagamento simuladas</h2>
+                <p>Use esta tela como vitrine. Ao criar um pedido em "Cadastrar pet", o cliente ve valores, cartao, Pix e boleto com QR.</p>
+            </div>
+
+            <div class="payment-methods">
+                <article class="payment-card"><strong>QR Code Pix</strong><span>Confirmacao visual por QR demonstrativo.</span></article>
+                <article class="payment-card"><strong>Credito</strong><span>Campos simulados para nome, numero, validade e CVV.</span></article>
+                <article class="payment-card"><strong>Debito</strong><span>Fluxo parecido com credito, sem cobranca real.</span></article>
+                <article class="payment-card"><strong>Boleto com QR</strong><span>Linha digitavel e QR demonstrativo para pagamento offline.</span></article>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js?v=20260603-wikimedia-pet-clothes"></script>
+</body>
+</html>
+
+
+
+

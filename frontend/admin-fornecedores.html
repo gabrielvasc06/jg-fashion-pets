@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fornecedores | Admin J&G</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-admin-page="true">
+    <header class="site-header admin-header">
+        <a class="logo" href="admin.html">J&G Admin</a>
+        <nav class="main-nav" aria-label="Navegacao administrativa">
+            <a href="admin.html">Painel</a>
+            <a class="active" href="admin-fornecedores.html">Fornecedores</a>
+            <a href="admin-retalhos.html">Retalhos</a>
+            <a href="admin-rotas.html">Rotas</a>
+            <button class="icon-button" id="theme-toggle" type="button">Tema</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero admin-hero compact-hero">
+            <div class="hero-content">
+                <p class="eyebrow hero-eyebrow">Fornecedores</p>
+                <h1>Controle de parceiros e origem dos retalhos.</h1>
+                <p>Cadastre contatos, tipo de tecido fornecido, prazo medio e status da parceria.</p>
+            </div>
+        </section>
+
+        <section class="section split-section admin-workspace">
+            <form class="panel">
+                <p class="eyebrow">Novo fornecedor</p>
+                <h2>Cadastro</h2>
+                <label>Nome do fornecedor</label>
+                <input type="text" placeholder="Ex: Atelie Flor de Algodao">
+                <label>Contato</label>
+                <input type="text" placeholder="Telefone, WhatsApp ou e-mail">
+                <label>Material fornecido</label>
+                <input type="text" placeholder="Algodao, jeans, ribana, tactel...">
+                <label>Status</label>
+                <select>
+                    <option>Ativo</option>
+                    <option>Em avaliacao</option>
+                    <option>Pausado</option>
+                </select>
+                <button class="button" type="button">Salvar fornecedor</button>
+            </form>
+
+            <section class="panel">
+                <p class="eyebrow">Parceiros atuais</p>
+                <h2>Lista de fornecedores</h2>
+                <div class="table-list">
+                    <article><strong>Atelie Flor de Algodao</strong><span>Algodao e tricoline | Ativo</span></article>
+                    <article><strong>Retalhos Recife</strong><span>Jeans e sarja | Em avaliacao</span></article>
+                    <article><strong>Malharia Boa Vista</strong><span>Ribana e moletinho | Ativo</span></article>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="js/app.js?v=20260603-wikimedia-pet-clothes"></script>
+</body>
+</html>
+
+
+
+

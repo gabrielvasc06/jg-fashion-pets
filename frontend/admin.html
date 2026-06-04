@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | J&G Fashion Pets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">J&G Fashion Pets</a>
+        <nav class="main-nav" aria-label="Navegacao principal">
+            <a href="index.html">Cliente</a>
+            <a href="modelador.html">Cadastrar pet</a>
+            <a class="active" href="admin.html">Admin</a>
+            <button class="icon-button" id="theme-toggle" type="button" title="Alternar tema">Tema</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero admin-hero">
+            <div class="hero-content">
+                <p class="eyebrow hero-eyebrow">Area administrativa</p>
+                <h1>Controle interno para fornecedores, retalhos e logistica.</h1>
+                <p>Acesso separado da area do cliente. Entre com a credencial administrativa para liberar o painel.</p>
+            </div>
+        </section>
+
+        <section class="section auth-section">
+            <div class="panel auth-card" id="login-form-box">
+                <p class="eyebrow">Login restrito</p>
+                <h2>Painel administrativo</h2>
+                <label for="admin-user">Login</label>
+                <input type="text" id="admin-user" autocomplete="username" placeholder="Login administrativo">
+
+                <label for="admin-pass">Senha</label>
+                <input type="password" id="admin-pass" autocomplete="current-password" placeholder="Senha administrativa">
+
+                <button class="button" type="button" onclick="efetuarLoginAdministrativo()">Entrar</button>
+                <p class="small-text">Use a credencial administrativa autorizada para acessar o painel.</p>
+            </div>
+
+            <div class="admin-dashboard" id="dashboard-protegido" hidden>
+                <div class="section-heading centered">
+                    <p class="eyebrow">Acesso concedido</p>
+                    <h2>Bem-vinda ao painel</h2>
+                    <p>Use os atalhos abaixo para administrar a operacao do atelie.</p>
+                </div>
+
+                <div class="admin-grid">
+                    <a class="admin-tile" href="admin-fornecedores.html">
+                        <strong>Fornecedores</strong>
+                        <span>Parceiros, contatos, tecidos fornecidos e status.</span>
+                    </a>
+                    <a class="admin-tile" href="admin-retalhos.html">
+                        <strong>Cadastro de retalhos</strong>
+                        <span>Entrada de tecido, estoque, custo e preco sugerido.</span>
+                    </a>
+                    <a class="admin-tile" href="admin-rotas.html">
+                        <strong>Rotas e logistica</strong>
+                        <span>Entregas cadastradas, valores a receber e andamento.</span>
+                    </a>
+                    <a class="admin-tile" href="index.html">
+                        <strong>Area do cliente</strong>
+                        <span>Voltar para a vitrine publica do projeto.</span>
+                    </a>
+                </div>
+
+                <button class="button danger" type="button" onclick="fazerLogout()">Sair do painel</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js?v=20260603-wikimedia-pet-clothes"></script>
+</body>
+</html>
+
+
+
+
