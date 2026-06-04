@@ -11,21 +11,6 @@ Aplicacao MVC para cadastro de pets, simulacao de roupa com retalhos, mural de c
 - `backend/src/main/java/com/jgfashion/services`: regras de negocio, como login e frete.
 - `backend/src/main/java/com/jgfashion/config`: carga inicial de roupas e retalhos.
 
-## Como rodar localmente
-
-1. Instale Java 17 e Maven.
-2. No terminal, entre em `backend`.
-3. Rode `mvn spring-boot:run`.
-4. Abra `frontend/index.html` no navegador.
-5. Banco H2: acesse `http://localhost:8080/h2-console`.
-   - JDBC URL: `jdbc:h2:mem:jg_pets_db`
-   - Usuario: `sa`
-   - Senha: deixe vazio
-
-## Acesso admin
-
-- Login: `Gessica`
-- Senha: `Gege@1306`
 
 ## Endpoints principais
 
