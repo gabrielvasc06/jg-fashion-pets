@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: jg-fashion-pets-api
+    runtime: docker
+    plan: free
+    rootDir: backend
+    healthCheckPath: /api/retalhos
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: SPRING_H2_CONSOLE_ENABLED
+        value: false

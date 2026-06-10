@@ -12,18 +12,21 @@ Para producao, troque o H2 em memoria por PostgreSQL. O H2 perde os dados quando
 1. Crie uma conta no Neon.
 2. Crie um projeto PostgreSQL.
 3. Copie a connection string JDBC.
-4. No Render, crie um Web Service apontando para o repositorio.
-5. Configure:
-   - Root directory: `backend`
-   - Build command: `mvn clean package -DskipTests`
-   - Start command: `java -jar target/jg-pet-api-0.0.1-SNAPSHOT.jar`
-6. Adicione variaveis de ambiente no Render:
+4. No Render, conecte a conta pelo GitHub e crie o servico a partir do arquivo `render.yaml`.
+5. Adicione variaveis de ambiente no Render:
    - `SPRING_DATASOURCE_URL=jdbc:postgresql://HOST/DB?sslmode=require`
    - `SPRING_DATASOURCE_USERNAME=USUARIO`
    - `SPRING_DATASOURCE_PASSWORD=SENHA`
    - `SPRING_JPA_HIBERNATE_DDL_AUTO=update`
-7. Publique o frontend no Cloudflare Pages, Vercel ou GitHub Pages.
-8. No arquivo `frontend/js/app.js`, troque `API_URL` para a URL do backend publicado.
+   - `SPRING_H2_CONSOLE_ENABLED=false`
+6. Publique o frontend no Vercel com:
+   - Framework Preset: `Other`
+   - Root Directory: `frontend`
+   - Build Command: vazio
+   - Output Directory: `.`
+7. O arquivo `frontend/vercel.json` redireciona `/api` para `https://jg-fashion-pets-api.onrender.com/api`.
+
+Se o nome do servico no Render mudar, atualize a URL em `frontend/vercel.json`.
 
 ## Opcao tudo em um: Railway
 
@@ -32,7 +35,8 @@ Para producao, troque o H2 em memoria por PostgreSQL. O H2 perde os dados quando
 3. Adicione um servico para o backend Spring Boot apontando para `backend`.
 4. Configure o build/start command como no Render.
 5. Use as variaveis PostgreSQL geradas pelo Railway para preencher `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` e `SPRING_DATASOURCE_PASSWORD`.
-6. Publique o frontend separadamente em um host estatico.
+6. Defina `SPRING_H2_CONSOLE_ENABLED=false`.
+7. Publique o frontend separadamente em um host estatico.
 
 ## Opcao apenas frontend: GitHub Pages ou Cloudflare Pages
 

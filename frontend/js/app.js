@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/api";
+const API_URL = window.JG_API_URL || (window.location.protocol === "file:" ? "http://localhost:8080/api" : "/api");
 
 function svgData(svg) {
     return `data:image/svg+xml,${encodeURIComponent(svg)}`;
