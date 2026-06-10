@@ -65,7 +65,7 @@ let fotoBase64Global = "";
 let petsCache = [];
 
 function fallbackImage(label) {
-    const safeLabel = encodeURIComponent(label || "J&G Fashion Pets");
+    const safeLabel = encodeURIComponent(label || "T&G Fashion Pets");
     return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 620'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23f2d7c6'/%3E%3Cstop offset='1' stop-color='%2386c8bd'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='620' fill='url(%23g)'/%3E%3Ccircle cx='270' cy='245' r='96' fill='%23ffffff' opacity='.5'/%3E%3Ccircle cx='610' cy='350' r='130' fill='%23ffffff' opacity='.35'/%3E%3Ctext x='450' y='325' text-anchor='middle' font-family='Arial' font-size='44' font-weight='700' fill='%23352b25'%3E${safeLabel}%3C/text%3E%3C/svg%3E`;
 }
 
@@ -394,8 +394,8 @@ function configurarPagamentoSimulado() {
     const content = {
         pix: {
             title: "QR Code Pix",
-            body: "Escaneie o QR Code demonstrativo ou copie a chave Pix simulada: jg-fashion-pets@pix.local",
-            qrText: "PIX J&G 9590"
+            body: "Escaneie o QR Code demonstrativo ou copie a chave Pix simulada: tg-fashion-pets@pix.local",
+            qrText: "PIX T&G 9590"
         },
         credito: {
             title: "Cartao de credito",
