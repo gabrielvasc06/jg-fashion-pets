@@ -39,7 +39,7 @@ const fallbackRoupas = [
         nome: "Colete passeio",
         tipoPet: "Cachorro",
         tamanhoSugerido: "P/M/G",
-        tecidoSugerido: "Jeans reaproveitado",
+        tecidoSugerido: "Algodao",
         precoBase: 59.9,
         imagemUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dog_sweater_1.jpg?width=900"
     },
@@ -47,7 +47,7 @@ const fallbackRoupas = [
         nome: "Moletom conforto",
         tipoPet: "Cachorro",
         tamanhoSugerido: "P/M",
-        tecidoSugerido: "Malha verderosa",
+        tecidoSugerido: "Malha verde",
         precoBase: 69.9,
         imagemUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sweaterdog.jpg?width=900"
     },
